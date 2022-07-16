@@ -1,0 +1,52 @@
+# примеры API-запросов
+
+@baseUrl = https://localhost:8000/api
+###
+# получение столиков
+GET {{baseUrl}}/tables/
+Content-Type: application/json
+###
+# фильтрация по цене и количеству мест
+GET {{baseUrl}}/tables/?number_of_seats=4&price_min=3000&price_max=6000/
+Content-Type: application/json
+###
+# создание нового столика
+POST {{baseUrl}}/tables/
+Content-Type: application/json
+#Authorization: Token 902ef055a9ac93f18327f1f9c45ab059f1a62c7d
+
+{
+  "table_number": 10,
+  "number_of_seats": 10,
+  "price": 10000,
+  "type_id": 1
+}
+###
+# попытка поменять цену
+PATCH {{baseUrl}}/tables/1/
+Content-Type: application/json
+#Authorization: Token 902ef055a9ac93f18327f1f9c45ab059f1a62c7d
+
+{
+  "price": 80000
+}
+###
+# создание резерва стола
+POST {{baseUrl}}/reservation/?email=user@localhost&phone=+189293884/
+Content-Type: application/json
+
+{
+  "table": 10
+}
+###
+# удаление резерва стола
+DELETE {{baseUrl}}/reservation/1/
+Content-Type: application/json
+###
+# изменение статуса бронирования
+PATCH {{baseUrl}}/reservation/2/
+Content-Type: application/json
+#Authorization: Token 902ef055a9ac93f18327f1f9c45ab059f1a62c7d
+{
+  "status": "Reserved"
+}
