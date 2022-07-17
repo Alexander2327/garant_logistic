@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'test_service.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'grand_logistic',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-        'USER': 'alexd',
-        'PASSWORD': '12345',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
